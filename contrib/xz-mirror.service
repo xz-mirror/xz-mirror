@@ -3,4 +3,4 @@ Description=XZ Utils Source Code Mirroring Script
 
 [Service]
 Type=oneshot
-ExecStart=/home/simnalamburt/services/xz-mirror-script/src/do
+ExecStart=/home/simnalamburt/services/xz-mirror/src/do

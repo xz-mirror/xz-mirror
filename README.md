@@ -27,7 +27,7 @@ journalctl -fu xz-mirror
 <br>
 
 --------
-*xz-mirror-script* is primarily distributed under the terms of both the [Apache
+*xz-mirror* is primarily distributed under the terms of both the [Apache
 License (Version 2.0)] and the [MIT license]. See [COPYRIGHT] for details.
 
 
