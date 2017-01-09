@@ -1,0 +1,9 @@
+[Unit]
+Description=Mirror the XZ Utils repository once a day
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target

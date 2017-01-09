@@ -13,6 +13,17 @@ cat secret/key.pub
 ./src/do
 ```
 
+### How to schedule it with systemd
+```bash
+sudo cp -i ./contrib/* /etc/systemd/system
+
+sudo systemctl start xz-mirror.timer
+sudo systemctl enable xz-mirror.timer
+
+# Inspect logs with journalctl
+journalctl -fu xz-mirror
+```
+
 <br>
 
 --------

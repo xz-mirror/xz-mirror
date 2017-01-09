@@ -9,3 +9,15 @@ Longer version:
   <LICENSE-MIT or http://opensource.org/licenses/MIT>, at your
   option. This file may not be copied, modified, or distributed
   except according to those terms.
+
+
+The xz-mirror-script Project includes codes written by thrid parties. The
+following third party packages are included, and carry their own copyright
+notices and license terms:
+
+* contrib/xz-mirror.service and contrib/xz-mirror.timer are derived from
+  <https://github.com/VBChunguk/systemd-certbot-renew> which is published
+  under public domain:
+
+  These configuration files are released into the public domain. You can freely
+  use them.
