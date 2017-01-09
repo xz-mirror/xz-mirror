@@ -1,6 +1,80 @@
-#!/bin/sh
-git clone --mirror http://git.tukaani.org/xz.git
-cd xz.git
-git remote add github git@github.com:xz-mirror/xz.git
-git push --mirror github
-cd ..
+#!/bin/bash
+
+#
+# Configs
+#
+GITREPO="repository"
+ORIGIN_URL="http://git.tukaani.org/xz.git"
+GITHUB_URL="git@github.com:xz-mirror/xz.git"
+
+# Change working directory to the script's directory
+cd "$( dirname "${BASH_SOURCE[0]}" )"
+
+
+#
+# 1. Checkout git.tukaani.org
+#
+
+# Check if the git repository has already been cloned
+if [ -d "$GITREPO" ]; then
+  pushd "$GITREPO" > /dev/null
+
+  if [ "$(git rev-parse --git-dir)" == "." ]; then
+    result="true"
+  else
+    result="false"
+  fi
+
+  popd > /dev/null
+else
+  result="false"
+fi
+
+if "$result"; then
+  # If there were existing git respository, simply update it
+  pushd "$GITREPO" > /dev/null
+
+  # Check if 'origin' remote does exists. Add one if it doesn't
+  if [ "$(git config remote.origin.url)" != "$ORIGIN_URL" ]; then
+    git remote add origin "$ORIGIN_URL"
+    echo -e "\e[33mAdded an origin\e[0m"
+  fi
+
+  # Update it
+  echo -e "\e[33mDownloading updates since the last sync ...\e[0m"
+  git remote update --prune
+
+  popd > /dev/null
+else
+  # If there weren't, clone a new copy
+
+  # Move away target directory if it does already exists
+  if [ -d "$GITREPO" ]; then
+    TARGET="$GITREPO.$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-8} | head -n 1)"
+    mv "$GITREPO" "$TARGET"
+    echo -e "\e[31mMoved away existing \"$GITREPO\" directory to \"$TARGET\"\e[0m"
+  fi
+
+  # Download a new copy
+  echo -e "\e[33mDownloading a whole git history ...\e[0m"
+  git clone --mirror "$ORIGIN_URL" "$GITREPO"
+fi
+
+
+#
+# 2. Updating the github's xz mirror repository
+#
+pushd "$GITREPO" > /dev/null
+
+# Change push location to github mirror
+if [ "$(git config remote.origin.pushurl)" != "$GITHUB_URL" ]; then
+  git remote set-url --push origin "$GITHUB_URL"
+  echo -e "\e[33mUpdated 'pushurl' to the github mirror\e[0m"
+fi
+
+# Mirror it to the github
+echo -e "\e[33mMirroring to the github ...\e[0m"
+git push --mirror
+
+popd > /dev/null
+echo -e "\e[33mDone\e[0m"
