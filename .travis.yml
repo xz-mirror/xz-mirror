@@ -1,0 +1,11 @@
+language: bash
+
+addons:
+  apt:
+    sources:  debian-sid
+    packages: shellcheck
+
+script: shellcheck src/do
+
+# Reference:
+#   https://github.com/koalaman/shellcheck/wiki/TravisCI
