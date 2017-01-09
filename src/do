@@ -4,14 +4,14 @@
 # Configs
 #
 DIRNAME="$(dirname "${BASH_SOURCE[0]}")"
-KEYPATH="$(realpath $DIRNAME/../secret/key)"
+KEYPATH="$(realpath "$DIRNAME/../secret/key")"
 
 GITREPO="../repository"
 ORIGIN_URL="http://git.tukaani.org/xz.git"
 GITHUB_URL="git@github.com:xz-mirror/xz.git"
 
 # Change working directory to the script's directory
-cd "$DIRNAME"
+cd "$DIRNAME" || exit 1
 
 
 #
@@ -53,7 +53,7 @@ else
 
   # Move away target directory if it does already exists
   if [ -d "$GITREPO" ]; then
-    TARGET="$GITREPO.$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-8} | head -n 1)"
+    TARGET="$GITREPO.$(tr -dc 'a-zA-Z0-9' < /dev/urandom | fold -w "${1:-8}" | head -n 1)"
     mv "$GITREPO" "$TARGET"
     echo -e "\e[31mMoved away existing \"$GITREPO\" directory to \"$TARGET\"\e[0m"
   fi
