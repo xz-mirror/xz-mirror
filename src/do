@@ -3,7 +3,7 @@
 #
 # Configs
 #
-GITREPO="repository"
+GITREPO="../repository"
 ORIGIN_URL="http://git.tukaani.org/xz.git"
 GITHUB_URL="git@github.com:xz-mirror/xz.git"
 

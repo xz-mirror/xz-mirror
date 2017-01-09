@@ -3,8 +3,8 @@ Mirror Script
 Easy [`xz-mirror/xz`] mirroring script
 
 ```bash
-# Update repository
-./do
+# Mirror it right now
+./src/do
 ```
 
 <br>
