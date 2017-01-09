@@ -3,6 +3,12 @@ Mirror Script
 Easy [`xz-mirror/xz`] mirroring script
 
 ```bash
+# Generate deploy key
+ssh-keygen -q -t ed25519 -N '' -f secret/key
+cat secret/key.pub
+
+# Store the public key to the github as a new deploy key allowing write access
+
 # Mirror it right now
 ./src/do
 ```

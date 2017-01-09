@@ -3,12 +3,15 @@
 #
 # Configs
 #
+DIRNAME="$(dirname "${BASH_SOURCE[0]}")"
+KEYPATH="$(realpath $DIRNAME/../secret/key)"
+
 GITREPO="../repository"
 ORIGIN_URL="http://git.tukaani.org/xz.git"
 GITHUB_URL="git@github.com:xz-mirror/xz.git"
 
 # Change working directory to the script's directory
-cd "$( dirname "${BASH_SOURCE[0]}" )"
+cd "$DIRNAME"
 
 
 #
@@ -74,7 +77,7 @@ fi
 
 # Mirror it to the github
 echo -e "\e[33mMirroring to the github ...\e[0m"
-git push --mirror
+GIT_SSH_COMMAND="ssh -i \"$KEYPATH\" -F /dev/null" git push --mirror
 
 popd > /dev/null
 echo -e "\e[33mDone\e[0m"
