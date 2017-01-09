@@ -1,1 +1,6 @@
+# Directory which xz source code is being stored
 /repository/
+
+# Directory which stores deploy key
+/secret/*
+!.keep
