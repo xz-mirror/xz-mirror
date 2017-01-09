@@ -1,5 +1,7 @@
 Mirror Script
 ========
+[![Build Status]][Travis CI]
+
 Easy [`xz-mirror/xz`] mirroring script
 
 ```bash
@@ -31,7 +33,8 @@ journalctl -fu xz-mirror
 License (Version 2.0)] and the [MIT license]. See [COPYRIGHT] for details.
 
 
-
+[Build Status]: https://travis-ci.org/xz-mirror/xz-mirror.svg?branch=master
+[Travis CI]: https://travis-ci.org/xz-mirror/xz-mirror
 [`xz-mirror/xz`]: https://github.com/xz-mirror/xz
 [MIT license]: LICENSE-MIT
 [Apache License (Version 2.0)]: LICENSE-APACHE
