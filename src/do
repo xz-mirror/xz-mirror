@@ -6,6 +6,7 @@
 # <LICENSE-MIT or http://opensource.org/licenses/MIT>, at your
 # option. This file may not be copied, modified, or distributed
 # except according to those terms.
+set -euo pipefail; IFS=$'\n\t'
 
 #
 # Configs
@@ -18,7 +19,7 @@ ORIGIN_URL="http://git.tukaani.org/xz.git"
 GITHUB_URL="git@github.com:xz-mirror/xz.git"
 
 # Change working directory to the script's directory
-cd "$DIRNAME" || exit 1
+cd "$DIRNAME"
 
 
 #
