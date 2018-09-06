@@ -1,8 +1,6 @@
-Mirror Script
+Mirror Script [![Build Status]][Travis CI]
 ========
-[![Build Status]][Travis CI]
-
-Easy [`xz-mirror/xz`] mirroring script
+Easy [xz-mirror/xz] mirroring script
 
 ```bash
 # Generate deploy key
@@ -32,10 +30,9 @@ journalctl -fu xz-mirror
 *xz-mirror* is primarily distributed under the terms of both the [Apache
 License (Version 2.0)] and the [MIT license]. See [COPYRIGHT] for details.
 
-
-[Build Status]: https://travis-ci.org/xz-mirror/xz-mirror.svg?branch=master
+[Build Status]: https://badgen.net/travis/xz-mirror/xz-mirror/master?icon=travis&label=build
 [Travis CI]: https://travis-ci.org/xz-mirror/xz-mirror
-[`xz-mirror/xz`]: https://github.com/xz-mirror/xz
+[xz-mirror/xz]: https://github.com/xz-mirror/xz
 [MIT license]: LICENSE-MIT
 [Apache License (Version 2.0)]: LICENSE-APACHE
 [COPYRIGHT]: COPYRIGHT
