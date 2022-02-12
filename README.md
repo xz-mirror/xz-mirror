@@ -1,10 +1,6 @@
 xz-mirror
 ========
-Easy [xz-mirror/xz] mirroring script
-
-```bash
-./run
-```
+[xz-mirror/xz] mirroring GitHub Actions.
 
 &nbsp;
 
