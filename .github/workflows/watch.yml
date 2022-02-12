@@ -1,0 +1,19 @@
+name: Mirroring watchtower
+
+on:
+  push:
+  schedule:
+    - cron: '0 */3 * * *'
+
+jobs:
+  mirror:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY }}
+      - name: Mirror
+        run: |
+          git clone --mirror 'https://git.tukaani.org/xz.git' .
+          git remote set-url --push origin 'git@github.com:xz-mirror/xz.git'
+          git push --mirror
