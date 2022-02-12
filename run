@@ -1,0 +1,8 @@
+#!/bin/bash
+set -euo pipefail; IFS=$'\n\t'
+
+mkdir xz
+cd xz
+git clone --mirror 'https://git.tukaani.org/xz.git' .
+git remote set-url --push origin 'git@github.com:xz-mirror/xz.git'
+git push --mirror

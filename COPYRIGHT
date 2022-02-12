@@ -2,22 +2,10 @@ Short version for non-laywers:
   The xz-mirror project is dual-licensed under Apache 2.0 and MIT terms.
 
 Longer version:
-  Copyright 2015-2017 Hyeon Kim
+  Copyright 2015-2022 Hyeon Kim
 
   Licensed under the Apache License, Version 2.0 <LICENSE-APACHE or
   http://www.apache.org/licenses/LICENSE-2.0> or the MIT license
   <LICENSE-MIT or http://opensource.org/licenses/MIT>, at your
   option. This file may not be copied, modified, or distributed
   except according to those terms.
-
-
-The xz-mirror Project includes codes written by thrid parties. The
-following third party packages are included, and carry their own copyright
-notices and license terms:
-
-* contrib/xz-mirror.service and contrib/xz-mirror.timer are derived from
-  <https://github.com/VBChunguk/systemd-certbot-renew> which is published
-  under public domain:
-
-  These configuration files are released into the public domain. You can freely
-  use them.
