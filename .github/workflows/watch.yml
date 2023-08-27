@@ -14,6 +14,6 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_KEY }}
       - name: Mirror
         run: |
-          git clone --mirror 'https://git.tukaani.org/xz.git' .
+          git clone --mirror 'https://github.com/tukaani-project/xz.git' .
           git remote set-url --push origin 'git@github.com:xz-mirror/xz.git'
           git push --mirror
